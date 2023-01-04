@@ -1,7 +1,7 @@
 --mode train
 --model_name pixelformer_carla_depth
 --encoder large07
---pretrained_model_path /kaggle/input/pixel-former-ckp-backbone/kitti.pth
+--pretrain /kaggle/input/swintransfomerlargeimagenet/swin_large_patch4_window7_224_22k.pth
 --dataset carla_depth
 --data_path /kaggle/input/carla-depth-dataset/carla_depth_dataset
 --gt_path /kaggle/input/carla-depth-dataset/carla_depth_dataset
@@ -15,7 +15,6 @@
 --input_height 720
 --input_width 1280
 --max_depth 80
---do_kb_crop
 --do_random_rotate
 --degree 1.0
 --log_directory ./models/
@@ -29,4 +28,3 @@
 --filenames_file_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset/validation_split.txt
 --min_depth_eval 1e-3
 --max_depth_eval 80
---garg_crop
