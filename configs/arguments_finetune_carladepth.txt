@@ -12,8 +12,8 @@
 --weight_decay 1e-2
 --adam_eps 1e-3
 --num_threads 1
---input_height 721
---input_width 1281
+--input_height 700
+--input_width 1250
 --max_depth 80
 --do_kb_crop
 --do_random_rotate
