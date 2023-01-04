@@ -19,6 +19,7 @@
 --do_random_rotate
 --degree 1.0
 --log_directory ./models/
+--gpu 0
 
 --log_freq 100
 --do_online_eval
