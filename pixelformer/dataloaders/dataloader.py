@@ -67,10 +67,10 @@ class DataLoadPreprocess(Dataset):
         self.args = args
         if mode == 'online_eval':
             with open(args.filenames_file_eval, 'r') as f:
-                self.filenames = f.read().replace('/rgb', 'rgb').replace('/depth', 'depth').split('\n')
+                self.filenames = f.read()  # .replace('/rgb', 'rgb').replace('/depth', 'depth').split('\n')
         else:
             with open(args.filenames_file, 'r') as f:
-                self.filenames = f.read().replace('/rgb', 'rgb').replace('/depth', 'depth').split('\n')
+                self.filenames = f.read()  # .replace('/rgb', 'rgb').replace('/depth', 'depth').split('\n')
     
         self.mode = mode
         self.transform = transform
@@ -96,8 +96,8 @@ class DataLoadPreprocess(Dataset):
             image_path = os.path.join(self.args.data_path, rgb_file)
             depth_path = os.path.join(self.args.gt_path, depth_file)
     
-            image = Image.open(image_path).convert('RGB')
-            depth_gt = Image.open(depth_path).convert('L')
+            image = Image.open(image_path)  # .convert('RGB')
+            depth_gt = Image.open(depth_path)  # .convert('L')
 
             if self.args.do_kb_crop is True:
                 height = image.height
@@ -156,7 +156,7 @@ class DataLoadPreprocess(Dataset):
                 data_path = self.args.data_path
 
             image_path = os.path.join(data_path, "./" + sample_path.split()[0])
-            image = np.asarray(Image.open(image_path).convert('RGB'), dtype=np.float32) / 255.0
+            image = np.asarray(Image.open(image_path), dtype=np.float32) / 255.0
 
             if self.mode == 'online_eval':
                 gt_path = self.args.gt_path_eval
@@ -165,7 +165,7 @@ class DataLoadPreprocess(Dataset):
                     depth_path = os.path.join(gt_path, sample_path.split()[0].split('/')[0], sample_path.split()[1])
                 has_valid_depth = False
                 try:
-                    depth_gt = Image.open(depth_path).convert('L')
+                    depth_gt = Image.open(depth_path)  # .convert('L')
                     has_valid_depth = True
                 except IOError:
                     depth_gt = False
