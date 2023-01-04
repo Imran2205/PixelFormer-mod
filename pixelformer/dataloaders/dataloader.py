@@ -67,10 +67,10 @@ class DataLoadPreprocess(Dataset):
         self.args = args
         if mode == 'online_eval':
             with open(args.filenames_file_eval, 'r') as f:
-                self.filenames = f.readlines()
+                self.filenames = f.readlines().replace('/rgb', 'rgb').replace('/depth', 'depth')
         else:
             with open(args.filenames_file, 'r') as f:
-                self.filenames = f.readlines()
+                self.filenames = f.readlines().replace('/rgb', 'rgb').replace('/depth', 'depth')
     
         self.mode = mode
         self.transform = transform
