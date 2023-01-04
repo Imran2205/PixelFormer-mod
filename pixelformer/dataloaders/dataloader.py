@@ -79,8 +79,8 @@ class DataLoadPreprocess(Dataset):
     
     def __getitem__(self, idx):
         sample_path = self.filenames[idx]
-        # focal = float(sample_path.split()[2])
-        focal = 518.8579
+        focal = float(sample_path.split()[2])
+        # focal = 518.8579
 
         if self.mode == 'train':
             if self.args.dataset == 'kitti':
@@ -98,8 +98,6 @@ class DataLoadPreprocess(Dataset):
     
             image = Image.open(image_path)
             depth_gt = Image.open(depth_path)
-            
-            
 
             if self.args.do_kb_crop is True:
                 height = image.height
@@ -115,7 +113,7 @@ class DataLoadPreprocess(Dataset):
                     depth_gt = np.array(depth_gt)
                     valid_mask = np.zeros_like(depth_gt)
                     valid_mask[45:472, 43:608] = 1
-                    depth_gt[valid_mask==0] = 0
+                    depth_gt[valid_mask == 0] = 0
                     depth_gt = Image.fromarray(depth_gt)
                 else:
                     depth_gt = depth_gt.crop((43, 45, 608, 472))
