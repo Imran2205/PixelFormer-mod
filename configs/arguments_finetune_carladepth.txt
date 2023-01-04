@@ -21,6 +21,7 @@
 --log_directory ./models/
 --gpu 0
 
+
 --log_freq 100
 --do_online_eval
 --eval_freq 1000
