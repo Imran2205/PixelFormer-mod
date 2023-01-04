@@ -182,7 +182,7 @@ def main_worker(gpu, ngpus_per_node, args):
             args.rank = args.rank * ngpus_per_node + gpu
         dist.init_process_group(backend=args.dist_backend, init_method=args.dist_url, world_size=args.world_size, rank=args.rank)
 
-    model = PixelFormer(version=args.encoder, inv_depth=False, max_depth=args.max_depth, pretrained=None)
+    model = PixelFormer(version=args.encoder, inv_depth=False, max_depth=args.max_depth, pretrained=args.pretrain)
     model.train()
 
     num_params = sum([np.prod(p.size()) for p in model.parameters()])
