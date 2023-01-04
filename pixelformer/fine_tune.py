@@ -406,11 +406,11 @@ def main():
         aux_out_path = os.path.join(args.log_directory, args.model_name)
         networks_savepath = os.path.join(aux_out_path, 'networks')
         dataloaders_savepath = os.path.join(aux_out_path, 'dataloaders')
-        command = 'cp pixelformer/train.py ' + aux_out_path
+        command = 'cp PixelFormer-mod/pixelformer/train.py ' + aux_out_path
         os.system(command)
-        command = 'mkdir -p ' + networks_savepath + ' && cp pixelformer/networks/*.py ' + networks_savepath
+        command = 'mkdir -p ' + networks_savepath + ' && cp PixelFormer-mod/pixelformer/networks/*.py ' + networks_savepath
         os.system(command)
-        command = 'mkdir -p ' + dataloaders_savepath + ' && cp pixelformer/dataloaders/*.py ' + dataloaders_savepath
+        command = 'mkdir -p ' + dataloaders_savepath + ' && cp PixelFormer-mod/pixelformer/dataloaders/*.py ' + dataloaders_savepath
         os.system(command)
 
     torch.cuda.empty_cache()
