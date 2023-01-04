@@ -97,7 +97,7 @@ class DataLoadPreprocess(Dataset):
             depth_path = os.path.join(self.args.gt_path, depth_file)
     
             image = Image.open(image_path).convert('RGB')
-            depth_gt = Image.open(depth_path).convert('LA')
+            depth_gt = Image.open(depth_path).convert('L')
 
             if self.args.do_kb_crop is True:
                 height = image.height
@@ -165,7 +165,7 @@ class DataLoadPreprocess(Dataset):
                     depth_path = os.path.join(gt_path, sample_path.split()[0].split('/')[0], sample_path.split()[1])
                 has_valid_depth = False
                 try:
-                    depth_gt = Image.open(depth_path).convert('LA')
+                    depth_gt = Image.open(depth_path).convert('L')
                     has_valid_depth = True
                 except IOError:
                     depth_gt = False
