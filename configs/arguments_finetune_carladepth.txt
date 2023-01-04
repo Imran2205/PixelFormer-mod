@@ -15,6 +15,7 @@
 --input_height 720
 --input_width 1280
 --max_depth 80
+--do_kb_crop
 --do_random_rotate
 --degree 1.0
 --log_directory ./models/
@@ -28,3 +29,4 @@
 --filenames_file_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset/validation_split.txt
 --min_depth_eval 1e-3
 --max_depth_eval 80
+--garg_crop
