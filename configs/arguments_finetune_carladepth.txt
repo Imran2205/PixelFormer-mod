@@ -1,11 +1,11 @@
 --mode train
 --model_name pixelformer_kittieigen
 --encoder large07
---pretrain pretrained/swin_large_patch4_window7_224_22k.pth
+--pretrained_model_path /kaggle/input/pixel-former-ckp-backbone/kitti.pth
 --dataset carla_depth
---data_path dataset/KITTI
---gt_path dataset/kitti_gt
---filenames_file data_splits/eigen_train_files_with_gt.txt
+--data_path /kaggle/input/carla-depth-dataset/carla_depth_dataset
+--gt_path /kaggle/input/carla-depth-dataset/carla_depth_dataset
+--filenames_file /kaggle/input/carla-depth-dataset/carla_depth_dataset/train_split.txt
 --batch_size 2
 --num_epochs 20
 --learning_rate 4e-5
@@ -15,6 +15,7 @@
 --input_height 720
 --input_width 1280
 --max_depth 80
+--do_kb_crop
 --do_random_rotate
 --degree 1.0
 --log_directory ./models/
@@ -22,8 +23,9 @@
 --log_freq 100
 --do_online_eval
 --eval_freq 1000
---data_path_eval dataset/KITTI
---gt_path_eval kitti_gt
---filenames_file_eval data_splits/eigen_test_files_with_gt.txt
+--data_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset
+--gt_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset
+--filenames_file_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset/validation_split.txt
 --min_depth_eval 1e-3
 --max_depth_eval 80
+--garg_crop
