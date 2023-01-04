@@ -96,7 +96,7 @@ class DataLoadPreprocess(Dataset):
             image_path = os.path.join(self.args.data_path, rgb_file)
             depth_path = os.path.join(self.args.gt_path, depth_file)
     
-            image = Image.open(image_path)
+            image = Image.open(image_path).convert('RGB')
             depth_gt = Image.open(depth_path)
 
             if self.args.do_kb_crop is True:
@@ -156,7 +156,7 @@ class DataLoadPreprocess(Dataset):
                 data_path = self.args.data_path
 
             image_path = os.path.join(data_path, "./" + sample_path.split()[0])
-            image = np.asarray(Image.open(image_path), dtype=np.float32) / 255.0
+            image = np.asarray(Image.open(image_path).convert('RGB'), dtype=np.float32) / 255.0
 
             if self.mode == 'online_eval':
                 gt_path = self.args.gt_path_eval
