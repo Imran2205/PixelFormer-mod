@@ -3,7 +3,7 @@
 --encoder large07
 --pretrain /kaggle/input/swintransfomerlargeimagenet/swin_large_patch4_window7_224_22k.pth
 --dataset kitti
---data_path /kaggle/input/kitti-split-and-eigen-split/kitti_train_files
+--data_path /kaggle/input/kitti-split-and-eigen-split/eigen_train_files
 --gt_path /kaggle/input/kittidatasetmonocular/train
 --filenames_file PixelFormer-mod/data_splits/eigen_train_files_with_gt.txt
 --batch_size 8
@@ -25,7 +25,7 @@
 --log_freq 100
 --do_online_eval
 --eval_freq 1000
---data_path_eval /kaggle/input/kitti-split-and-eigen-split/kitti_val_files
+--data_path_eval /kaggle/input/kitti-split-and-eigen-split/eigen_test_files
 --gt_path_eval /kaggle/input/kittidatasetmonocular/val
 --filenames_file_eval PixelFormer-mod/data_splits/eigen_test_files_with_gt.txt
 --min_depth_eval 1e-3
