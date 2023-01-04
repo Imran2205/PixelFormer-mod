@@ -202,6 +202,7 @@ class DataLoadPreprocess(Dataset):
         return result
 
     def random_crop(self, img, depth, height, width):
+        print(img.shape, height, depth)
         assert img.shape[0] >= height
         assert img.shape[1] >= width
         assert img.shape[0] == depth.shape[0]
