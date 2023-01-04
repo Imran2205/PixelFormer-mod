@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
     images = h5_file['images']
 
-    scenes = [u''.join(chr(c[0]) for c in h5_file[obj_ref]) for obj_ref in h5_file['sceneTypes'][0]]
+    scenes = [u''.join(chr(c) for c in h5_file[obj_ref]) for obj_ref in h5_file['sceneTypes'][0]]
     print(scenes)
 
     print("processing images")
