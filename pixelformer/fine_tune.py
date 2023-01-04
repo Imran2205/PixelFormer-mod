@@ -301,10 +301,10 @@ def main_worker(gpu, ngpus_per_node, args):
             if args.dataset == 'nyu':
                 mask = depth_gt > 0.1
             else:
-                mask = depth_gt < 1.0
+                mask = depth_gt > 1.0
 
             loss = silog_criterion.forward(depth_est, depth_gt, mask.to(torch.bool))
-            print(depth_est.shape, depth_gt.shape, torch.unique(depth_est), torch.unique(depth_gt), mask.to(torch.bool))
+            print(depth_est.shape, depth_gt.shape, torch.unique(depth_est), torch.unique(depth_gt), loss)
             loss.backward()
             for param_group in optimizer.param_groups:
                 current_lr = (args.learning_rate - end_learning_rate) * (1 - global_step / num_total_steps) ** 0.9 + end_learning_rate
