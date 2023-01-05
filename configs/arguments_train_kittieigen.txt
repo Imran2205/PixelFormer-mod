@@ -5,7 +5,7 @@
 --dataset kitti
 --data_path /kaggle/input/
 --gt_path /kaggle/input/kittidatasetmonocular/train
---filenames_file PixelFormer-mod/data_splits/eigen_train_files_with_gt_kgl.txt
+--filenames_file PixelFormer-mod/data_splits/eigen_train_files_with_gt_kgl2.txt
 --batch_size 1
 --num_epochs 20
 --learning_rate 4e-5
