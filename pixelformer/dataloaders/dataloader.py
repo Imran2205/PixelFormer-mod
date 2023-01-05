@@ -107,7 +107,10 @@ class DataLoadPreprocess(Dataset):
             depth_path = os.path.join(self.args.gt_path, depth_file)
     
             image = Image.open(image_path).convert('RGB')
-            depth_gt = Image.open(depth_path)  # .convert('L')
+            if self.args.dataset == 'carla_depth':
+                depth_gt = Image.open(depth_path, mode='I')  # .convert('L')
+            else:
+                depth_gt = Image.open(depth_path)
 
             print(np.unique(depth_gt), np.asarray(depth_gt).shape)
 
@@ -183,7 +186,11 @@ class DataLoadPreprocess(Dataset):
                 #     depth_path = os.path.join(gt_path, sample_path.split()[0].split('/')[0], sample_path.split()[1])
                 has_valid_depth = False
                 try:
-                    depth_gt = Image.open(depth_path)  # .convert('L')
+                    # depth_gt = Image.open(depth_path)  # .convert('L')
+                    if self.args.dataset == 'carla_depth':
+                        depth_gt = Image.open(depth_path, mode='I')  # .convert('L')
+                    else:
+                        depth_gt = Image.open(depth_path)
                     has_valid_depth = True
                 except IOError:
                     depth_gt = False
