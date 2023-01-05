@@ -132,6 +132,8 @@ class DataLoadPreprocess(Dataset):
             depth_gt = np.asarray(depth_gt, dtype=np.float32)
             depth_gt = np.expand_dims(depth_gt, axis=2)
 
+            print(np.unique(depth_gt))
+
             if self.args.dataset == 'nyu':
                 depth_gt = depth_gt / 1000.0
                 img, depth = image, depth_gt
@@ -147,6 +149,8 @@ class DataLoadPreprocess(Dataset):
                 image = img.astype(np.float32)
             else:
                 depth_gt = depth_gt / 256.0
+
+            print(np.unique(depth_gt))
 
             if image.shape[0] != self.args.input_height or image.shape[1] != self.args.input_width:
                 image, depth_gt = self.random_crop(image, depth_gt, self.args.input_height, self.args.input_width)
@@ -165,8 +169,8 @@ class DataLoadPreprocess(Dataset):
             if self.mode == 'online_eval':
                 gt_path = self.args.gt_path_eval
                 depth_path = os.path.join(gt_path, "./" + sample_path.split()[1])
-                if self.args.dataset == 'kitti':
-                    depth_path = os.path.join(gt_path, sample_path.split()[0].split('/')[0], sample_path.split()[1])
+                # if self.args.dataset == 'kitti':
+                #     depth_path = os.path.join(gt_path, sample_path.split()[0].split('/')[0], sample_path.split()[1])
                 has_valid_depth = False
                 try:
                     depth_gt = Image.open(depth_path)  # .convert('L')
