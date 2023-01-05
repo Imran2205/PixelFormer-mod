@@ -93,6 +93,9 @@ class DataLoadPreprocess(Dataset):
                 rgb_file = sample_path.split()[0]
                 depth_file = sample_path.split()[1]
 
+            print(self.args.gt_path, depth_file)
+            print(self.args.data_path, rgb_file)
+
             image_path = os.path.join(self.args.data_path, rgb_file)
             depth_path = os.path.join(self.args.gt_path, depth_file)
     
