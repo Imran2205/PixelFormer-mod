@@ -108,7 +108,7 @@ class DataLoadPreprocess(Dataset):
     
             image = Image.open(image_path).convert('RGB')
             if self.args.dataset == 'carla_depth':
-                depth_gt = Image.open(depth_path).convert('I')
+                depth_gt = Image.open(depth_path)  # .convert('I')
             else:
                 depth_gt = Image.open(depth_path)
 
@@ -188,7 +188,7 @@ class DataLoadPreprocess(Dataset):
                 try:
                     # depth_gt = Image.open(depth_path)  # .convert('L')
                     if self.args.dataset == 'carla_depth':
-                        depth_gt = Image.open(depth_path).convert('I')
+                        depth_gt = Image.open(depth_path) # .convert('I')
                     else:
                         depth_gt = Image.open(depth_path)
                     has_valid_depth = True
