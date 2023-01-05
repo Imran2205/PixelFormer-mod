@@ -127,7 +127,9 @@ class DataLoadPreprocess(Dataset):
                 random_angle = (random.random() - 0.5) * 2 * self.args.degree
                 image = self.rotate_image(image, random_angle)
                 depth_gt = self.rotate_image(depth_gt, random_angle, flag=Image.NEAREST)
-            
+
+            print(np.unique(depth_gt))
+
             image = np.asarray(image, dtype=np.float32) / 255.0
             depth_gt = np.asarray(depth_gt, dtype=np.float32)
             depth_gt = np.expand_dims(depth_gt, axis=2)
