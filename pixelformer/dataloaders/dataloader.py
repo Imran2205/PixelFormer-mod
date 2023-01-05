@@ -67,11 +67,17 @@ class DataLoadPreprocess(Dataset):
         self.args = args
         if mode == 'online_eval':
             with open(args.filenames_file_eval, 'r') as f:
-                self.filenames = f.read().replace('/rgb', 'rgb').replace('/depth', 'depth').split('\n')
+                if self.args.dataset == 'carla_depth':
+                    self.filenames = f.read().replace('/rgb', 'rgb').replace('/depth', 'depth').split('\n')
+                else:
+                    self.filenames = f.readlines()
         else:
             with open(args.filenames_file, 'r') as f:
-                self.filenames = f.read().replace('/rgb', 'rgb').replace('/depth', 'depth').split('\n')
-    
+                if self.args.dataset == 'carla_depth':
+                    self.filenames = f.read().replace('/rgb', 'rgb').replace('/depth', 'depth').split('\n')
+                else:
+                    self.filenames = f.readlines()
+
         self.mode = mode
         self.transform = transform
         self.to_tensor = ToTensor
