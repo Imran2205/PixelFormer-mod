@@ -90,6 +90,7 @@ class DataLoadPreprocess(Dataset):
                     rgb_file.replace('image_02', 'image_03')
                     depth_file.replace('image_02', 'image_03')
             else:
+                print(sample_path)
                 rgb_file = sample_path.split()[0]
                 depth_file = sample_path.split()[1]
 
