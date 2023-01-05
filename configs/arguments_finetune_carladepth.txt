@@ -3,9 +3,9 @@
 --encoder large07
 --pretrain /kaggle/input/swintransfomerlargeimagenet/swin_large_patch4_window7_224_22k.pth
 --dataset carla_depth
---data_path /kaggle/input/carla-depth-dataset/carla_depth_dataset
---gt_path /kaggle/input/carla-depth-dataset/carla_depth_dataset
---filenames_file /kaggle/input/carla-depth-dataset/carla_depth_dataset/train_split.txt
+--data_path /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
+--gt_path /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
+--filenames_file /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b/train_split.txt
 --batch_size 2
 --num_epochs 20
 --learning_rate 4e-5
@@ -25,8 +25,8 @@
 --log_freq 100
 --do_online_eval
 --eval_freq 1000
---data_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset
---gt_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset
+--data_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
+--gt_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --filenames_file_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset/validation_split.txt
 --min_depth_eval 1e-3
 --max_depth_eval 1000
