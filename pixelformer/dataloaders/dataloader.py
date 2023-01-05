@@ -103,6 +103,8 @@ class DataLoadPreprocess(Dataset):
             image = Image.open(image_path)  # .convert('RGB')
             depth_gt = Image.open(depth_path)  # .convert('L')
 
+            print(np.unique(depth_gt), np.asarray(depth_gt).shape)
+
             if self.args.do_kb_crop is True:
                 height = image.height
                 width = image.width
