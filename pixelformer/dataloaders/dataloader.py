@@ -218,7 +218,7 @@ class DataLoadPreprocess(Dataset):
                     depth_gt = depth_gt[top_margin:top_margin + 352, left_margin:left_margin + 1216, :]
 
             if image.shape[0] != self.args.input_height or image.shape[1] != self.args.input_width:
-                image, depth_gt = self.random_crop(image, depth_gt, self.args.input_height, self.args.input_width)
+                image, depth_gt = self.center_crop(image, depth_gt, self.args.input_height, self.args.input_width)
 
             if self.mode == 'online_eval':
                 sample = {'image': image, 'depth': depth_gt, 'focal': focal, 'has_valid_depth': has_valid_depth, 'path': image_path}
@@ -233,6 +233,18 @@ class DataLoadPreprocess(Dataset):
     def rotate_image(self, image, angle, flag=Image.BILINEAR):
         result = image.rotate(angle, resample=flag)
         return result
+
+    def center_crop(self, img, depth, height, width):
+        # print(img.shape, height, depth)
+        assert img.shape[0] >= height
+        assert img.shape[1] >= width
+        assert img.shape[0] == depth.shape[0]
+        assert img.shape[1] == depth.shape[1]
+        x = (img.shape[1] - width) // 2
+        y = (img.shape[0] - height) // 2
+        img = img[y:y + height, x:x + width, :]
+        depth = depth[y:y + height, x:x + width, :]
+        return img, depth
 
     def random_crop(self, img, depth, height, width):
         # print(img.shape, height, depth)
