@@ -100,8 +100,8 @@ class DataLoadPreprocess(Dataset):
                 rgb_file = sample_path.split()[0]
                 depth_file = sample_path.split()[1]
 
-            print(self.args.gt_path, depth_file)
-            print(self.args.data_path, rgb_file)
+            # print(self.args.gt_path, depth_file)
+            # print(self.args.data_path, rgb_file)
 
             image_path = os.path.join(self.args.data_path, rgb_file)
             depth_path = os.path.join(self.args.gt_path, depth_file)
@@ -112,7 +112,7 @@ class DataLoadPreprocess(Dataset):
             else:
                 depth_gt = Image.open(depth_path)
 
-            print(np.unique(depth_gt), np.asarray(depth_gt).shape)
+            # print(np.unique(depth_gt), np.asarray(depth_gt).shape)
 
             if self.args.do_kb_crop is True:
                 height = image.height
@@ -139,13 +139,13 @@ class DataLoadPreprocess(Dataset):
                 image = self.rotate_image(image, random_angle)
                 depth_gt = self.rotate_image(depth_gt, random_angle, flag=Image.NEAREST)
 
-            print(np.unique(depth_gt), np.asarray(depth_gt).shape)
+            # print(np.unique(depth_gt), np.asarray(depth_gt).shape)
 
             image = np.asarray(image, dtype=np.float32) / 255.0
             depth_gt = np.asarray(depth_gt, dtype=np.float32)
             depth_gt = np.expand_dims(depth_gt, axis=2)
 
-            print(np.unique(depth_gt), depth_gt.shape)
+            # print(np.unique(depth_gt), depth_gt.shape)
 
             if self.args.dataset == 'nyu':
                 depth_gt = depth_gt / 1000.0
@@ -160,10 +160,12 @@ class DataLoadPreprocess(Dataset):
                 M[l:l+h, u:u+w, :] = 0
                 img = M*img + (1-M)*depth_copied
                 image = img.astype(np.float32)
+            elif self.args.dataset == 'carla_depth':
+                depth_gt = depth_gt / 256.0
             else:
                 depth_gt = depth_gt / 256.0
 
-            print(np.unique(depth_gt))
+            # print(np.unique(depth_gt))
 
             if image.shape[0] != self.args.input_height or image.shape[1] != self.args.input_width:
                 image, depth_gt = self.random_crop(image, depth_gt, self.args.input_height, self.args.input_width)
