@@ -24,7 +24,7 @@ parser.convert_arg_line_to_args = convert_arg_line_to_args
 parser.add_argument('--mode',                      type=str,   help='train or test', default='train')
 parser.add_argument('--model_name',                type=str,   help='model name', default='pixelformer')
 parser.add_argument('--encoder',                   type=str,   help='type of encoder, base07, large07', default='large07')
-parser.add_argument('--pretrain',                  type=str,   help='path of pretrained encoder', default=None)
+parser.add_argument('--pretrain',                  type=str,   help='path of pretrained encoder', default=None)  # --pretrain /kaggle/input/swintransfomerlargeimagenet/swin_large_patch4_window7_224_22k.pth
 
 # Dataset
 parser.add_argument('--dataset',                   type=str,   help='dataset to train on, kitti or nyu', default='nyu')
