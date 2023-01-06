@@ -85,8 +85,8 @@ class DataLoadPreprocess(Dataset):
     
     def __getitem__(self, idx):
         sample_path = self.filenames[idx]
-        # focal = float(sample_path.split()[2])
-        focal = 518.8579
+        focal = float(sample_path.split()[2])
+        # focal = 518.8579
 
         if self.mode == 'train':
             if self.args.dataset == 'kitti':
@@ -216,6 +216,10 @@ class DataLoadPreprocess(Dataset):
                 image = image[top_margin:top_margin + 352, left_margin:left_margin + 1216, :]
                 if self.mode == 'online_eval' and has_valid_depth:
                     depth_gt = depth_gt[top_margin:top_margin + 352, left_margin:left_margin + 1216, :]
+
+            if image.shape[0] != self.args.input_height or image.shape[1] != self.args.input_width:
+                image, depth_gt = self.random_crop(image, depth_gt, self.args.input_height, self.args.input_width)
+
             if self.mode == 'online_eval':
                 sample = {'image': image, 'depth': depth_gt, 'focal': focal, 'has_valid_depth': has_valid_depth, 'path': image_path}
             else:
