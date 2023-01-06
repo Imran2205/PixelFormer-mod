@@ -38,7 +38,7 @@ parser.add_argument('--max_depth',                 type=float, help='maximum dep
 # Log and save
 parser.add_argument('--log_directory',             type=str,   help='directory to save checkpoints and summaries', default='')
 parser.add_argument('--checkpoint_path',           type=str,   help='path to a checkpoint to load', default='')
-parser.add_argument('--pretrained_model_path',     type=str,   help='path to a model to load', default='')
+parser.add_argument('--pretrained_model_path',     type=str,   help='path to a model to load', default='')  # --pretrained_model_path /kaggle/input/pixel-former-ckp-backbone/kitti.pth
 parser.add_argument('--log_freq',                  type=int,   help='Logging frequency in global steps', default=100)
 parser.add_argument('--save_freq',                 type=int,   help='Checkpoint saving frequency in global steps', default=5000)
 
