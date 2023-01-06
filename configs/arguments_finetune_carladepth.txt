@@ -2,13 +2,13 @@
 --model_name pixelformer_carla_depth
 --encoder large07
 --pretrain /kaggle/input/swintransfomerlargeimagenet/swin_large_patch4_window7_224_22k.pth
-
+--pretrained_model_path /kaggle/input/pixel-former-ckp-backbone/kitti.pth
 --dataset carla_depth
 --data_path /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --gt_path /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --filenames_file /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b/train_split.txt
 --batch_size 1
---num_epochs 50
+--num_epochs 55
 --learning_rate 4e-5
 --weight_decay 1e-2
 --adam_eps 1e-3
