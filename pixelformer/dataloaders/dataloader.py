@@ -161,7 +161,7 @@ class DataLoadPreprocess(Dataset):
                 img = M*img + (1-M)*depth_copied
                 image = img.astype(np.float32)
             elif self.args.dataset == 'carla_depth':
-                depth_gt = depth_gt / 256.0
+                depth_gt = depth_gt / 65.536
             else:
                 depth_gt = depth_gt / 256.0
 
@@ -203,6 +203,8 @@ class DataLoadPreprocess(Dataset):
                     depth_gt = np.expand_dims(depth_gt, axis=2)
                     if self.args.dataset == 'nyu':
                         depth_gt = depth_gt / 1000.0
+                    elif self.args.dataset == 'carla_depth':
+                        depth_gt = depth_gt / 65.536
                     else:
                         depth_gt = depth_gt / 256.0
 
