@@ -6,7 +6,7 @@
 --data_path /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --gt_path /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --filenames_file /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b/train_split.txt
---batch_size 2
+--batch_size 1
 --num_epochs 20
 --learning_rate 4e-5
 --weight_decay 1e-2
