@@ -238,7 +238,12 @@ def main_worker(gpu, ngpus_per_node, args):
     elif args.pretrained_model_path != '':
         if os.path.isfile(args.pretrained_model_path):
             print("== Loading model '{}'".format(args.pretrained_model_path))
-            checkpoint = torch.load(args.pretrained_model_path, map_location='cpu')
+            # checkpoint = torch.load(args.pretrained_model_path, map_location='cpu')
+            if args.gpu is None:
+                checkpoint = torch.load(args.checkpoint_path)
+            else:
+                loc = 'cuda:{}'.format(args.gpu)
+                checkpoint = torch.load(args.checkpoint_path, map_location=loc)
             model.load_state_dict(checkpoint['model'])
             print("== Loaded model '{}'".format(args.pretrained_model_path))
             del checkpoint
