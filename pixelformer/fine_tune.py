@@ -355,7 +355,8 @@ def main_worker(gpu, ngpus_per_node, args):
                 'model': model.state_dict(),
                 'optimizer': optimizer.state_dict()
             }
-            os.remove(args.log_directory + '/' + args.model_name + model_save_name)
+            if os.path.exists(args.log_directory + '/' + args.model_name + model_save_name):
+                os.remove(args.log_directory + '/' + args.model_name + model_save_name)
             torch.save(checkpoint, args.log_directory + '/' + args.model_name + model_save_name)
 
             if args.do_online_eval and global_step and global_step % args.eval_freq == 0 and not model_just_loaded:
