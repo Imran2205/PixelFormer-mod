@@ -25,9 +25,9 @@
 
 --log_freq 100
 --do_online_eval
---eval_freq 1000
+--eval_freq 1309
 --data_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --gt_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --filenames_file_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b/validation_split.txt
 --min_depth_eval 1e-3
---max_depth_eval 1309
+--max_depth_eval 1000
