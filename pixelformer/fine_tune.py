@@ -349,15 +349,6 @@ def main_worker(gpu, ngpus_per_node, args):
                         writer.add_image('image/image/{}'.format(i), inv_normalize(image[i, :, :, :]).data, global_step)
                     writer.flush()
 
-            model_save_name = '/checkpoint.pth'
-            print('Saving checkpoint: {}'.format(model_save_name))
-            checkpoint = {
-                'model': model.state_dict(),
-                'optimizer': optimizer.state_dict()
-            }
-            if os.path.exists(args.log_directory + '/' + args.model_name + model_save_name):
-                os.remove(args.log_directory + '/' + args.model_name + model_save_name)
-            torch.save(checkpoint, args.log_directory + '/' + args.model_name + model_save_name)
             if args.do_online_eval and global_step and global_step % args.eval_freq == 0 and not model_just_loaded:
                 time.sleep(0.1)
                 model.eval()
@@ -397,6 +388,15 @@ def main_worker(gpu, ngpus_per_node, args):
             global_step += 1
 
         epoch += 1
+        model_save_name = '/checkpoint.pth'
+        print('Saving checkpoint: {}'.format(model_save_name))
+        checkpoint = {
+            'model': model.state_dict(),
+            'optimizer': optimizer.state_dict()
+        }
+        if os.path.exists(args.log_directory + '/' + args.model_name + model_save_name):
+            os.remove(args.log_directory + '/' + args.model_name + model_save_name)
+        torch.save(checkpoint, args.log_directory + '/' + args.model_name + model_save_name)
        
     if not args.multiprocessing_distributed or (args.multiprocessing_distributed and args.rank % ngpus_per_node == 0):
         writer.close()
