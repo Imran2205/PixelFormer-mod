@@ -349,12 +349,13 @@ def main_worker(gpu, ngpus_per_node, args):
                         writer.add_image('image/image/{}'.format(i), inv_normalize(image[i, :, :, :]).data, global_step)
                     writer.flush()
 
-            model_save_name = 'checkpoint.pth'
+            model_save_name = '/checkpoint.pth'
             print('Saving checkpoint: {}'.format(model_save_name))
             checkpoint = {
                 'model': model.state_dict(),
                 'optimizer': optimizer.state_dict()
             }
+            os.remove(args.log_directory + '/' + args.model_name + model_save_name)
             torch.save(checkpoint, args.log_directory + '/' + args.model_name + model_save_name)
 
             if args.do_online_eval and global_step and global_step % args.eval_freq == 0 and not model_just_loaded:
