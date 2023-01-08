@@ -349,7 +349,7 @@ def main_worker(gpu, ngpus_per_node, args):
                         writer.add_image('image/image/{}'.format(i), inv_normalize(image[i, :, :, :]).data, global_step)
                     writer.flush()
 
-            model_save_name = 'model/checkpoint.pth'
+            model_save_name = 'checkpoint.pth'
             print('Saving checkpoint: {}'.format(model_save_name))
             checkpoint = {
                 'model': model.state_dict(),
