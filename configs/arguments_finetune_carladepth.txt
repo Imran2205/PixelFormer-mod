@@ -30,4 +30,4 @@
 --gt_path_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --filenames_file_eval /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b/validation_split.txt
 --min_depth_eval 1e-3
---max_depth_eval 1310
+--max_depth_eval 1309
