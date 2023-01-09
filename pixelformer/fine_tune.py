@@ -392,7 +392,8 @@ def main_worker(gpu, ngpus_per_node, args):
         print('Saving checkpoint: {}'.format(model_save_name))
         checkpoint = {
             'model': model.state_dict(),
-            'optimizer': optimizer.state_dict()
+            'optimizer': optimizer.state_dict(),
+            'global_step': global_step
         }
         if os.path.exists(args.log_directory + '/' + args.model_name + model_save_name):
             os.remove(args.log_directory + '/' + args.model_name + model_save_name)
