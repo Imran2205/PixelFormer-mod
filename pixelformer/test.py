@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 from utils import post_process_depth, flip_lr
+from networks.PixelFormer import PixelFormer
 
 
 def convert_arg_line_to_args(arg_line):
