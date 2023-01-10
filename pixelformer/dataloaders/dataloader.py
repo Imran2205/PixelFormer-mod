@@ -217,7 +217,10 @@ class DataLoadPreprocess(Dataset):
                 if self.mode == 'online_eval' and has_valid_depth:
                     depth_gt = depth_gt[top_margin:top_margin + 352, left_margin:left_margin + 1216, :]
 
-            if not self.mode == 'test':
+            if self.mode == 'test':
+                if image.shape[0] != self.args.input_height or image.shape[1] != self.args.input_width:
+                    image, _ = self.center_crop(image, image, self.args.input_height, self.args.input_width)
+            else:
                 if image.shape[0] != self.args.input_height or image.shape[1] != self.args.input_width:
                     image, depth_gt = self.center_crop(image, depth_gt, self.args.input_height, self.args.input_width)
 
