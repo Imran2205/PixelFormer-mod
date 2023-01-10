@@ -60,6 +60,18 @@ def get_num_lines(file_path):
     return len(lines)
 
 
+def center_crop(img, height, width):
+    # print(img.shape, height, depth)
+    assert img.shape[0] >= height
+    assert img.shape[1] >= width
+    assert img.shape[0] == depth.shape[0]
+    assert img.shape[1] == depth.shape[1]
+    x = (img.shape[1] - width) // 2
+    y = (img.shape[0] - height) // 2
+    img = img[y:y + height, x:x + width, :]
+    return img
+
+
 def test(params):
     """Test function."""
     args.mode = 'test'
@@ -159,6 +171,7 @@ def test(params):
         
         rgb_path = os.path.join(args.data_path, './' + lines[s].split()[0])
         image = cv2.imread(rgb_path)
+
         if args.dataset == 'nyu':
             gt_path = os.path.join(args.data_path, './' + lines[s].split()[1])
             gt = cv2.imread(gt_path, -1).astype(np.float32) / 1000.0  # Visualization purpose only
