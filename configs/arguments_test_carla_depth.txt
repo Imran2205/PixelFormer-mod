@@ -1,11 +1,11 @@
 --model_name pixelformer_kittieigen
 --encoder large07
 --dataset carla_depth
---input_height 480
---input_width 640
+--input_height 640
+--input_width 480
 --max_depth 1000
 --save_viz
 
---data_path /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
---filenames_file /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b/validation_split.txt
+--data_path /kaggle/input/pfb-test-set/test_img_00-60_0_jpg/test/img
+--filenames_file /kaggle/input/pfb-test-set/gta_test_split.txt
 --checkpoint_path /kaggle/input/pixel-former-trained-models/models/pixelformer_carla_depth/model-22253-best_rms_51.25032
