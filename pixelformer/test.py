@@ -142,11 +142,11 @@ def test(params):
             scene_name = lines[s].split()[0].split('/')[0]
             filename_pred_png = save_name + '/raw/' + scene_name + '_' + lines[s].split()[0].split('/')[1].replace(
                 '.jpg', '.png')
-            filename_cmap_png = save_name + '/cmap/' + scene_name + '_' + lines[s].split()[0].split('/rgb_')[1].replace(
-                '.jpg', '.png')
-            filename_gt_png = save_name + '/gt/' + scene_name + '_' + lines[s].split()[0].split('/rgb_')[1].replace(
+            filename_cmap_png = save_name + '/cmap/' + scene_name + '_' + lines[s].split()[0].split('/')[1].replace(
+                '.jpg', '_cmap.png')
+            filename_gt_png = save_name + '/gt/' + scene_name + '_' + lines[s].split()[0].split('/')[1].replace(
                 '.jpg', '_gt.png')
-            filename_image_png = save_name + '/rgb/' + scene_name + '_' + lines[s].split()[0].split('/rgb_')[1]
+            filename_image_png = save_name + '/rgb/' + scene_name + '_' + lines[s].split()[0].split('/')[1]
         
         rgb_path = os.path.join(args.data_path, './' + lines[s].split()[0])
         image = cv2.imread(rgb_path)
@@ -159,6 +159,8 @@ def test(params):
         
         if args.dataset == 'kitti' or args.dataset == 'kittipred':
             pred_depth_scaled = pred_depth * 256.0
+        elif args.dataset == 'carla_depth':
+            pred_depth_scaled = pred_depth * 65.536
         else:
             pred_depth_scaled = pred_depth * 1000.0
         
