@@ -230,6 +230,8 @@ def main_worker(gpu, ngpus_per_node, args):
             model.load_state_dict(checkpoint['model'])
             optimizer.load_state_dict(checkpoint['optimizer'])
 
+            global_step = checkpoint['global_step']
+
             print("== Loaded checkpoint '{}' (global_step {})".format(args.checkpoint_path, checkpoint['global_step']))
         else:
             print("== No checkpoint found at '{}'".format(args.checkpoint_path))
