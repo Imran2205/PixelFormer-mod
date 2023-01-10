@@ -8,4 +8,4 @@
 
 --data_path /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b
 --filenames_file /kaggle/input/carla-depth-dataset/carla_depth_dataset_16b/validation_split.txt
---checkpoint_path /kaggle/input/pixel-former-trained-models/models/pixelformer_carla_depth/model-20944-best_rms_49.65398
+--checkpoint_path /kaggle/input/pixel-former-trained-models/models/pixelformer_carla_depth/model-22253-best_rms_51.25032
