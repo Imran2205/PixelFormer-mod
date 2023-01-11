@@ -99,7 +99,9 @@ def test(params):
     pred_depths = []
     start_time = time.time()
     with torch.no_grad():
-        for _, sample in enumerate(tqdm(dataloader.data)):
+        for iii, sample in enumerate(tqdm(dataloader.data)):
+            if iii == 100:
+                break
             image = Variable(sample['image'].cuda())
             # Predict
             depth_est = model(image)
