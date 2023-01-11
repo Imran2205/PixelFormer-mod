@@ -4,7 +4,6 @@
 --input_height 480
 --input_width 640
 --max_depth 1000
---save_viz
 
 --data_path /kaggle/input/pfb-val-set/dataset/playing_for_bench_mark/validation/images
 --filenames_file /kaggle/input/pfb-val-set-split/gta_val_split.txt
