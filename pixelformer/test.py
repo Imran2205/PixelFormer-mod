@@ -11,6 +11,7 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 from tqdm import tqdm
+from PIL import Image
 
 from utils import post_process_depth, flip_lr
 from networks.PixelFormer import PixelFormer
