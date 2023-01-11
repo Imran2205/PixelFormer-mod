@@ -196,7 +196,13 @@ def test(params):
                 pred_depth_cropped = pred_depth[10:-1 - 9, 10:-1 - 9]
                 plt.imsave(filename_cmap_png, (10 - pred_depth) / 10, cmap='plasma')
             else:
-                plt.imsave(filename_cmap_png, np.log10(pred_depth), cmap='Greys')
+                img_log = np.log10(pred_depth) * 85
+                img_log = np.array(img_log, dtype=np.uint8)
+                img_log = Image.fromarray(img_log, mode='L')
+                img_log.save(
+                    filename_cmap_png
+                )
+                # plt.imsave(filename_cmap_png, np.log10(pred_depth), cmap='Greys')
     
     return
 
