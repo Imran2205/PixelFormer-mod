@@ -6,6 +6,6 @@
 --max_depth 1000
 --save_viz
 
---data_path /kaggle/input/pfb-test-set/test_img_00-60_0_jpg/test/img
---filenames_file /kaggle/input/pfb-test-set/gta_test_split.txt
+--data_path /kaggle/input/pfb-val-set/dataset/playing_for_bench_mark/validation/images
+--filenames_file /kaggle/input/pfb-val-set-split/gta_val_split.txt
 --checkpoint_path /kaggle/input/pixel-former-trained-models/models/pixelformer_carla_depth/model-58905-best_log_rms_0.23159
