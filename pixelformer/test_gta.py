@@ -162,13 +162,22 @@ def test(params):
             filename_image_png = save_name + '/rgb/' + scene_name + '_' + lines[s].split()[0].split('/rgb_')[1]
         else:
             scene_name = lines[s].split()[0].split('/')[0]
-            filename_pred_png = save_name + '/raw/' + scene_name + '_' + lines[s].split()[0].split('/')[1].replace(
+            filename_pred_png = save_name + '/raw/' + "/".join(lines[s].split()[0].split('/')[-2:]).replace(
                 '.jpg', '.png')
-            filename_cmap_png = save_name + '/cmap/' + scene_name + '_' + lines[s].split()[0].split('/')[1].replace(
-                '.jpg', '_cmap.png')
-            filename_gt_png = save_name + '/gt/' + scene_name + '_' + lines[s].split()[0].split('/')[1].replace(
-                '.jpg', '_gt.png')
-            filename_image_png = save_name + '/rgb/' + scene_name + '_' + lines[s].split()[0].split('/')[1]
+            filename_cmap_png = save_name + '/cmap/' + "/".join(lines[s].split()[0].split('/')[-2:]).replace(
+                '.jpg', '.png')
+            filename_gt_png = save_name + '/gt/' + "/".join(lines[s].split()[0].split('/')[-2:]).replace(
+                '.jpg', '.png')
+            filename_image_png = save_name + '/rgb/' + "/".join(lines[s].split()[0].split('/')[-2:])
+
+        if not os.path.exists("/".join(filename_pred_png.split('/')[:-1])):
+            os.makedirs("/".join(filename_pred_png.split('/')[:-1]))
+        if not os.path.exists("/".join(filename_cmap_png.split('/')[:-1])):
+            os.makedirs("/".join(filename_cmap_png.split('/')[:-1]))
+        if not os.path.exists("/".join(filename_gt_png.split('/')[:-1])):
+            os.makedirs("/".join(filename_gt_png.split('/')[:-1]))
+        if not os.path.exists("/".join(filename_image_png.split('/')[:-1])):
+            os.makedirs("/".join(filename_image_png.split('/')[:-1]))
         
         rgb_path = os.path.join(args.data_path, './' + lines[s].split()[0])
         image = cv2.imread(rgb_path)
