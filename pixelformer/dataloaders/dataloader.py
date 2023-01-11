@@ -180,7 +180,10 @@ class DataLoadPreprocess(Dataset):
 
             image_path = os.path.join(data_path, "./" + sample_path.split()[0])
             if self.mode == 'test':
-                image = np.asarray(Image.open(image_path).resize((1280, 720)), dtype=np.float32) / 255.0
+                image = np.asarray(Image.open(image_path).resize((640, 360)), dtype=np.float32) / 255.0
+                pad_img = np.zeros((480, 640), dtype=np.float32)
+                pad_img[60:60+360, :] = image
+                image = pad_img
             else:
                 image = np.asarray(Image.open(image_path), dtype=np.float32) / 255.0
 
