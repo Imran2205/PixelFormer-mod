@@ -181,7 +181,7 @@ def test(params):
         
         rgb_path = os.path.join(args.data_path, './' + lines[s].split()[0])
         image = cv2.imread(rgb_path)
-        image = cv2.resize(image, (640, 360), interpolation=cv2.INTER_LINEAR)
+        image = cv2.resize(image, (480, 270), interpolation=cv2.INTER_LINEAR)
 
         if args.dataset == 'nyu':
             gt_path = os.path.join(args.data_path, './' + lines[s].split()[1])
@@ -191,6 +191,7 @@ def test(params):
         pred_depth = pred_depths[s]
 
         pred_depth = pred_depth[60:60+360, :]
+        pred_depth = cv2.resize(pred_depth, (480, 270), interpolation=cv2.INTER_NEAREST)
         
         if args.dataset == 'kitti' or args.dataset == 'kittipred':
             pred_depth_scaled = pred_depth * 256.0
