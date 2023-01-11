@@ -100,8 +100,8 @@ def test(params):
     start_time = time.time()
     with torch.no_grad():
         for iii, sample in enumerate(tqdm(dataloader.data)):
-            if iii == 100:
-                break
+            # if iii == 100:
+            #     break
             image = Variable(sample['image'].cuda())
             # Predict
             depth_est = model(image)
