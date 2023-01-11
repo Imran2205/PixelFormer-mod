@@ -7,4 +7,4 @@
 
 --data_path /kaggle/input/pfb-test-set/test_img_00-60_0_jpg/test/img
 --filenames_file /kaggle/input/pfb-test-set/gta_test_split.txt
---checkpoint_path /kaggle/input/pixel-former-trained-models/models/pixelformer_carla_depth/model-22253-best_rms_51.25032
+--checkpoint_path /kaggle/input/pixel-former-trained-models/models/pixelformer_carla_depth/model-58905-best_log_rms_0.23159
