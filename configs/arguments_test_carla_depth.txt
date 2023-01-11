@@ -4,6 +4,7 @@
 --input_height 480
 --input_width 640
 --max_depth 1000
+--save_viz
 
 --data_path /kaggle/input/pfb-test-set/test_img_00-60_0_jpg/test/img
 --filenames_file /kaggle/input/pfb-test-set/gta_test_split.txt
