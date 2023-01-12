@@ -247,45 +247,45 @@ def test(params):
     #         os.makedirs("/".join(filename_gt_png.split('/')[:-1]))
     #     if not os.path.exists("/".join(filename_image_png.split('/')[:-1])):
     #         os.makedirs("/".join(filename_image_png.split('/')[:-1]))
-        
-        # rgb_path = os.path.join(args.data_path, './' + lines[s].split()[0])
-        # image = cv2.imread(rgb_path)
-        # image = cv2.resize(image, (480, 270), interpolation=cv2.INTER_LINEAR)
-        #
-        # if args.dataset == 'nyu':
-        #     gt_path = os.path.join(args.data_path, './' + lines[s].split()[1])
-        #     gt = cv2.imread(gt_path, -1).astype(np.float32) / 1000.0  # Visualization purpose only
-        #     gt[gt == 0] = np.amax(gt)
-        
-        # pred_depth = pred_depths[s]
-        #
-        # pred_depth = pred_depth[60:60+360, :]
-        # pred_depth = cv2.resize(pred_depth, (480, 270), interpolation=cv2.INTER_NEAREST)
-        #
-        # if args.dataset == 'kitti' or args.dataset == 'kittipred':
-        #     pred_depth_scaled = pred_depth * 256.0
-        # elif args.dataset == 'carla_depth':
-        #     pred_depth_scaled = pred_depth * 65.536
-        # else:
-        #     pred_depth_scaled = pred_depth * 1000.0
-        #
-        # pred_depth_scaled = pred_depth_scaled.astype(np.uint16)
-        # cv2.imwrite(filename_pred_png, pred_depth_scaled, [cv2.IMWRITE_PNG_COMPRESSION, 0])
-        #
-        # if args.save_viz:
-        #     cv2.imwrite(filename_image_png, image)
-        #     if args.dataset == 'nyu':
-        #         plt.imsave(filename_gt_png, (10 - gt) / 10, cmap='plasma')
-        #         pred_depth_cropped = pred_depth[10:-1 - 9, 10:-1 - 9]
-        #         plt.imsave(filename_cmap_png, (10 - pred_depth) / 10, cmap='plasma')
-        #     else:
-        #         img_log = np.log10(pred_depth) * 85
-        #         img_log = np.array(img_log, dtype=np.uint8)
-        #         img_log = Image.fromarray(img_log, mode='L')
-        #         img_log.save(
-        #             filename_cmap_png
-        #         )
-        #         # plt.imsave(filename_cmap_png, np.log10(pred_depth), cmap='Greys')
+    #
+    #     rgb_path = os.path.join(args.data_path, './' + lines[s].split()[0])
+    #     image = cv2.imread(rgb_path)
+    #     image = cv2.resize(image, (480, 270), interpolation=cv2.INTER_LINEAR)
+    #
+    #     if args.dataset == 'nyu':
+    #         gt_path = os.path.join(args.data_path, './' + lines[s].split()[1])
+    #         gt = cv2.imread(gt_path, -1).astype(np.float32) / 1000.0  # Visualization purpose only
+    #         gt[gt == 0] = np.amax(gt)
+    #
+    #     pred_depth = pred_depths[s]
+    #
+    #     pred_depth = pred_depth[60:60+360, :]
+    #     pred_depth = cv2.resize(pred_depth, (480, 270), interpolation=cv2.INTER_NEAREST)
+    #
+    #     if args.dataset == 'kitti' or args.dataset == 'kittipred':
+    #         pred_depth_scaled = pred_depth * 256.0
+    #     elif args.dataset == 'carla_depth':
+    #         pred_depth_scaled = pred_depth * 65.536
+    #     else:
+    #         pred_depth_scaled = pred_depth * 1000.0
+    #
+    #     pred_depth_scaled = pred_depth_scaled.astype(np.uint16)
+    #     cv2.imwrite(filename_pred_png, pred_depth_scaled, [cv2.IMWRITE_PNG_COMPRESSION, 0])
+    #
+    #     if args.save_viz:
+    #         cv2.imwrite(filename_image_png, image)
+    #         if args.dataset == 'nyu':
+    #             plt.imsave(filename_gt_png, (10 - gt) / 10, cmap='plasma')
+    #             pred_depth_cropped = pred_depth[10:-1 - 9, 10:-1 - 9]
+    #             plt.imsave(filename_cmap_png, (10 - pred_depth) / 10, cmap='plasma')
+    #         else:
+    #             img_log = np.log10(pred_depth) * 85
+    #             img_log = np.array(img_log, dtype=np.uint8)
+    #             img_log = Image.fromarray(img_log, mode='L')
+    #             img_log.save(
+    #                 filename_cmap_png
+    #             )
+    #             # plt.imsave(filename_cmap_png, np.log10(pred_depth), cmap='Greys')
     
     return
 
