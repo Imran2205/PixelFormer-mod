@@ -175,7 +175,6 @@ def test(params):
                 pred_depth = pred_depth_uncropped
 
             # pred_depths.append(pred_depth)
-            pred_depth = pred_depths[s]
 
             pred_depth = pred_depth[60:60 + 360, :]
             pred_depth = cv2.resize(pred_depth, (480, 270), interpolation=cv2.INTER_NEAREST)
