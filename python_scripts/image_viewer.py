@@ -5,8 +5,15 @@ import cv2
 import png
 import io
 
-image = "/Users/imrankabir/Desktop/research/semantic_seg_audio_description/PixelFormer-mod/python_scripts/demo.tiff"
-
+# image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels/Nettles_19.png"
+# image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels/Crab_18.png"
+# image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels/Dolphin_24.png"
+image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels/Whale_12.png"
+#
+# image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels_old/Nettles_19.png"
+# image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels_old/Crab_18.png"
+# image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels_old/Dolphin_24.png"
+# image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels_old/Whale_12.png"
 
 def save_image(arr, filename):
     # is_success, buffer = cv2.imencode(".tiff", arr)
@@ -46,7 +53,7 @@ img = Image.open(image)
 # img = raw_depth_to_gray_32bit(img, verbose=True)
 img = raw_image(img, verbose=True)
 
-save_image(img, filename='demo.tiff')
+# save_image(img, filename='demo.tiff')
 
 fig = px.imshow(img)
 fig.show()
