@@ -5,6 +5,6 @@
 --input_width 640
 --max_depth 1000
 
---data_path /kaggle/input/pfb-val-set/dataset/playing_for_bench_mark/validation/images
---filenames_file /kaggle/input/pfb-val-set-split/gta_val_split.txt
+--data_path /kaggle/input/carla-test-rgb/rgb_folder_wise/rgb_folder_wise
+--filenames_file /kaggle/input/carla-test-rgb/carla_test_12k.txt
 --checkpoint_path /kaggle/input/pixel-former-trained-models/models/pixelformer_carla_depth/model-58905-best_log_rms_0.23159
