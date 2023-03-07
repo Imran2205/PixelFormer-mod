@@ -8,7 +8,7 @@ import io
 # image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels/Nettles_19.png"
 # image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels/Crab_18.png"
 # image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels/Dolphin_24.png"
-image = "/Volumes/ssd_imran/carla_dataset/testing/tracker_input/gt_tracker/depth_gray/town_01_00016248.tiff"
+image = "/Volumes/ssd_imran/carla_dataset/testing/tracker_input/gt_tracker/videos/001/depth/001_00001.png"
 #
 # image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels_old/Nettles_19.png"
 # image = "/Users/imrankabir/Desktop/research/few_shot/underwater_few_shot/extras/data_for_mask_2_former/train/labels_old/Crab_18.png"
